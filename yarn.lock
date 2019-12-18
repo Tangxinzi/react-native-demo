@@ -5058,6 +5058,24 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha1-LMD+D7p0LZf9UnxCoTvsTusGJBw=
 
+react-native-fade@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.npm.taobao.org/react-native-fade/download/react-native-fade-1.0.3.tgz#e27cd5a75c0d09a9ee82d854fb3851006c228d23"
+  integrity sha1-4nzVp1wNCanugthU+zhRAGwijSM=
+
+react-native-header-scroll-view@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/react-native-header-scroll-view/download/react-native-header-scroll-view-2.0.0.tgz#68781256fdaac8f7ee4ed23f71016fcbabc50924"
+  integrity sha1-aHgSVv2qyPfuTtI/cQFvy6vFCSQ=
+  dependencies:
+    react-native-fade "^1.0.3"
+    react-native-iphone-x-helper "^1.2.0"
+
+react-native-iphone-x-helper@^1.2.0:
+  version "1.2.1"
+  resolved "https://registry.npm.taobao.org/react-native-iphone-x-helper/download/react-native-iphone-x-helper-1.2.1.tgz#645e2ffbbb49e80844bb4cbbe34a126fda1e6772"
+  integrity sha1-ZF4v+7tJ6AhEu0y740oSb9oeZ3I=
+
 react-native@0.61.5:
   version "0.61.5"
   resolved "https://registry.npm.taobao.org/react-native/download/react-native-0.61.5.tgz#6e21acb56cbd75a3baeb1f70201a66f42600bba8"

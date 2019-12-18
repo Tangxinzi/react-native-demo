@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "react-native-fade": "^1.0.3",
+    "react-native-header-scroll-view": "^2.0.0",
+    "react-native-iphone-x-helper": "^1.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",
