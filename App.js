@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  DeviceEventEmitter
 } from 'react-native';
 
 import {
@@ -23,6 +24,57 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+import QuickActions from "react-native-quick-actions";
+
+QuickActions.setShortcutItems([
+  {
+    type: "Alarm", // Required
+    title: "Alarm ICON", // Optional, if empty, `type` will be used instead
+    subtitle: "Sets or displays an alarm.",
+    icon: "Alarm", // Icons instructions below
+    userInfo: {
+      url: "app://alarm" // Provide any custom data like deep linking URL
+    }
+  },
+  {
+    type: "Bookmark",
+    title: "Bookmark ICON",
+    subtitle: "Creates a bookmark or shows bookmarks.",
+    icon: "Bookmark",
+    userInfo: {
+      url: "app://bookmar"
+    }
+  },
+  {
+    type: "Confirmation",
+    title: "Confirmation ICON",
+    subtitle: "Denotes that an action is complete.",
+    icon: "Confirmation",
+    userInfo: {
+      url: "app://confirmation"
+    }
+  },
+  {
+    type: "Love",
+    title: "Love ICON",
+    subtitle: "Denotes or marks an item as loved.",
+    icon: "Love",
+    userInfo: {
+      url: "app://love"
+    }
+  },
+]);
+
+DeviceEventEmitter.addListener("quickActionShortcut", data => {
+  console.log(data.title, data.type, data.userInfo)
+});
+
+QuickActions.isSupported((error, supported) => {
+  if (!supported) {
+    console.log("Device does not support 3D Touch or 3D Touch is disabled.");
+  }
+})
 
 const App: () => React$Node = () => {
   return (

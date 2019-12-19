@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "16.9.0",
-    "react-native": "0.61.5"
+    "react-native": "0.61.5",
+    "react-native-quick-actions": "^0.3.13"
   },
   "devDependencies": {
     "@babel/core": "^7.7.5",

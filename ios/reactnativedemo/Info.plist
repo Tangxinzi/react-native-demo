@@ -24,6 +24,17 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+	  <dict>
+	    <key>UIApplicationShortcutItemIconType</key>
+	    <string>UIApplicationShortcutIconTypeLocation</string>
+	    <key>UIApplicationShortcutItemTitle</key>
+	    <string>Action Title</string>
+	    <key>UIApplicationShortcutItemType</key>
+	    <string>$(PRODUCT_BUNDLE_IDENTIFIER).action</string>
+	  </dict>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
