@@ -12,6 +12,7 @@ import TabsDemo from './ant-design/Tabs';
 import SwitchDemo from './ant-design/Switch';
 import AccordionDemo from './ant-design/Accordion';
 import BadgeDemo from './ant-design/Badge';
+import CarouselDemo from './ant-design/Carousel';
 
 const AntDesignReactNative: () => React$Node = () => {
     return (
@@ -22,7 +23,8 @@ const AntDesignReactNative: () => React$Node = () => {
         {/* <TabsDemo /> */}
         {/* <SwitchDemo /> */}
         {/* <AccordionDemo /> */}
-        <BadgeDemo />
+        {/* <BadgeDemo /> */}
+        <CarouselDemo />
       </>
     );
 }
