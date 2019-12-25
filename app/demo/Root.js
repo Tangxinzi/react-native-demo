@@ -11,6 +11,7 @@ import CheckboxDemo from './ant-design/Checkbox';
 import TabsDemo from './ant-design/Tabs';
 import SwitchDemo from './ant-design/Switch';
 import AccordionDemo from './ant-design/Accordion';
+import BadgeDemo from './ant-design/Badge';
 
 const AntDesignReactNative: () => React$Node = () => {
     return (
@@ -20,7 +21,8 @@ const AntDesignReactNative: () => React$Node = () => {
         {/* <CheckboxDemo /> */}
         {/* <TabsDemo /> */}
         {/* <SwitchDemo /> */}
-        <AccordionDemo />
+        {/* <AccordionDemo /> */}
+        <BadgeDemo />
       </>
     );
 }
