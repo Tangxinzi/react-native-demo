@@ -6,11 +6,13 @@
 import React from 'react';
 import { Text, View, SafeAreaView, StyleSheet } from 'react-native';
 import DrawerDemo from './ant-design/Drawer';
+import ButtonDemo from './ant-design/Button';
 
 const AntDesignReactNative: () => React$Node = () => {
     return (
       <>
-        <DrawerDemo />
+        {/* <DrawerDemo /> */}
+        <ButtonDemo />
       </>
     );
 }
