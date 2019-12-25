@@ -9,6 +9,7 @@ import DrawerDemo from './ant-design/Drawer';
 import ButtonDemo from './ant-design/Button';
 import CheckboxDemo from './ant-design/Checkbox';
 import TabsDemo from './ant-design/Tabs';
+import SwitchDemo from './ant-design/Switch';
 
 const AntDesignReactNative: () => React$Node = () => {
     return (
@@ -16,7 +17,8 @@ const AntDesignReactNative: () => React$Node = () => {
         {/* <DrawerDemo /> */}
         {/* <ButtonDemo /> */}
         {/* <CheckboxDemo /> */}
-        <TabsDemo />
+        {/* <TabsDemo /> */}
+        <SwitchDemo />
       </>
     );
 }
