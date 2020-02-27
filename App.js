@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  TouchableHighlight
 } from 'react-native';
 
 import {
@@ -24,7 +25,28 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Share from 'react-native-share';
+
 const App: () => React$Node = () => {
+  const _pressHandler = () => {
+    console.log('_pressHandler');
+    // const shareOptions = {
+    //     title: 'Share via',
+    //     message: 'some message',
+    //     url: 'some share url',
+    //     social: Share.Social.WHATSAPP,
+    //     whatsAppNumber: "9199999999"  // country code + phone number(currently only works on Android)
+    //     filename: 'test' , // only for base64 file in Android
+    // };
+    // Share.shareSingle(shareOptions);
+    // ActivityView.show({
+    //   text: 'ActivityView for React Native',
+    //   url: 'https://github.com/naoufal/react-native-activity-view',
+    //   imageUrl: 'https://facebook.github.io/react/img/logo_og.png',
+    //   anchor: React.findNodeHandle(this.refs.share),
+    // });
+  }
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -39,6 +61,11 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
+            <TouchableHighlight onPress={this._pressHandler}>
+              <Text>
+                Share with Activity View
+              </Text>
+            </TouchableHighlight>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
