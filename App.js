@@ -1,114 +1,245 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React from 'react';
+import React from "react";
 import {
+  Linking,
   SafeAreaView,
-  StyleSheet,
   ScrollView,
-  View,
+  StyleSheet,
   Text,
-  StatusBar,
-} from 'react-native';
+  TouchableHighlight,
+  View,
+  AlertIOS
+} from "react-native";
+import RNLocation from "react-native-location";
+import moment from "moment";
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const repoUrl = "https://github.com/timfpark/react-native-location";
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+export default class App extends React.PureComponent {
+  constructor() {
+    super();
+    this.state = {
+      location: null
+    };
+  }
+
+  componentWillMount() {
+    RNLocation.configure({distanceFilter: 5.0});
+
+    RNLocation.requestPermission({
+      ios: "whenInUse",
+      android: {
+        detail: "fine",
+        rationale: {
+          title: "Location permission",
+          message: "We use your location to demo the library",
+          buttonPositive: "OK",
+          buttonNegative: "Cancel"
+        }
+      }
+    }).then(granted => {
+      if (granted) {
+        this._startUpdatingLocation();
+      }
+    });
+  }
+
+  _startUpdatingLocation = () => {
+    this.locationSubscription = RNLocation.subscribeToLocationUpdates(locations => {
+      this.setState({location: locations[0]});
+    });
+  };
+
+  _stopUpdatingLocation = () => {
+    this.locationSubscription && this.locationSubscription();
+    this.setState({location: null});
+  };
+
+  _openRepoUrl = () => {
+    Linking.openURL(repoUrl).catch(err => console.error("An error occurred", err));
+  };
+
+  render() {
+    const {location} = this.state;
+    return (<ScrollView style={styles.container}>
+      <SafeAreaView style={styles.innerContainer}>
+        <View style={{
+            alignItems: "center",
+            marginTop: 30
+          }}>
+          <Text style={styles.title}>react-native-location</Text>
+          <TouchableHighlight onPress={this._openRepoUrl} underlayColor="#CCC" activeOpacity={0.8}>
+            <Text style={styles.repoLink}>{repoUrl}</Text>
+          </TouchableHighlight>
+        </View>
+
+        <View style={styles.row}>
+          <TouchableHighlight onPress={this._startUpdatingLocation} style={[
+              styles.button, {
+                backgroundColor: "#2b6dff"
+              }
+            ]}>
+            <Text style={styles.buttonText}>开始</Text>
+          </TouchableHighlight>
+
+          <TouchableHighlight onPress={this._stopUpdatingLocation} style={[
+              styles.button, {
+                backgroundColor: "#fb4444"
+              }
+            ]}>
+            <Text style={styles.buttonText}>暂停</Text>
+          </TouchableHighlight>
+        </View>
+
+        {
+          location && (<React.Fragment>
+            <View style={styles.row}>
+              <View style={[styles.detailBox, styles.third]}>
+                <Text style={styles.valueTitle}>行驶方向 / Course</Text>
+                <Text style={[styles.detail, styles.largeDetail]}>
+                  {location.course}
+                </Text>
+              </View>
+
+              <View style={[styles.detailBox, styles.third]}>
+                <Text style={styles.valueTitle}>行驶速度 / Speed</Text>
+                <Text style={[styles.detail, styles.largeDetail]}>
+                  {location.speed}
+                </Text>
+              </View>
+
+              <View style={[styles.detailBox, styles.third]}>
+                <Text style={styles.valueTitle}>海拔高度 / Altitude</Text>
+                <Text style={[styles.detail, styles.largeDetail]}>
+                  {location.altitude}
+                </Text>
+              </View>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
+
+            <View style={{
+                alignItems: "flex-start"
+              }}>
+              <View style={styles.row}>
+                <View style={[styles.detailBox, styles.half]}>
+                  <Text style={styles.valueTitle}>纬度 / Latitude</Text>
+                  <Text style={styles.detail}>{location.latitude}</Text>
+                </View>
+
+                <View style={[styles.detailBox, styles.half]}>
+                  <Text style={styles.valueTitle}>经度 / Longitude</Text>
+                  <Text style={styles.detail}>{location.longitude}</Text>
+                </View>
+              </View>
+
+              <View style={styles.row}>
+                <View style={[styles.detailBox, styles.half]}>
+                  <Text style={styles.valueTitle}>准确度 / Accuracy</Text>
+                  <Text style={styles.detail}>{location.accuracy}</Text>
+                </View>
+
+                <View style={[styles.detailBox, styles.half]}>
+                  <Text style={styles.valueTitle}>高度精度 / Altitude Accuracy</Text>
+                  <Text style={styles.detail}>
+                    {location.altitudeAccuracy}
+                  </Text>
+                </View>
+              </View>
+
+              <View style={styles.row}>
+                <View style={[styles.detailBox, styles.half]}>
+                  <Text style={styles.valueTitle}>时间戳 / Timestamp</Text>
+                  <Text style={styles.detail}>{location.timestamp}</Text>
+                </View>
+
+                <View style={[styles.detailBox, styles.half]}>
+                  <Text style={styles.valueTitle}>时间 / Datetime</Text>
+                  <Text style={styles.detail}>
+                    {moment(location.timestamp).format("YYYY-MM-DD HH:mm:ss")}
+                  </Text>
+                </View>
+              </View>
+
+              <View style={styles.row}>
+                <View style={[styles.detailBox, styles.full]}>
+                  <Text style={styles.json}>{JSON.stringify(location)}</Text>
+                </View>
+              </View>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
+          </React.Fragment>)
+        }
       </SafeAreaView>
-    </>
-  );
-};
+    </ScrollView>);
+  }
+}
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF"
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  innerContainer: {
+    marginVertical: 30
   },
-  body: {
-    backgroundColor: Colors.white,
+  title: {
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "bold"
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
+  repoLink: {
+    textAlign: "center",
     fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+    fontWeight: "bold",
+    color: "#0000CC",
+    textDecorationLine: "underline"
   },
+  row: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    marginTop: 5,
+    marginBottom: 5
+  },
+  detailBox: {
+    padding: 15,
+    justifyContent: "center"
+  },
+  button: {
+    flex: 1,
+    marginHorizontal: 10,
+    marginTop: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 10
+  },
+  buttonText: {
+    fontSize: 20,
+    padding: 5,
+    color: "#FFFFFF"
+  },
+  valueTitle: {
+    fontFamily: "Futura",
+    fontSize: 12
+  },
+  detail: {
+    fontSize: 15,
+    fontWeight: "bold"
+  },
+  largeDetail: {
+    fontSize: 20
+  },
+  json: {
+    fontSize: 12,
+    fontFamily: "Courier",
+    textAlign: "center",
+    fontWeight: "bold"
+  },
+  full: {
+    width: "100%"
+  },
+  half: {
+    width: "50%"
+  },
+  third: {
+    width: "33%"
+  }
 });
-
-export default App;
