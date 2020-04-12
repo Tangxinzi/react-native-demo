@@ -66,6 +66,13 @@
 			remoteGlobalIDString = BCE209E51943F20C002FEED8;
 			remoteInfo = GPUImageFramework;
 		};
+		0461178B244306FB0023F3FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04611787244306FB0023F3FC /* RNFetchBlob.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A15C300E1CD25C330074CB35;
+			remoteInfo = RNFetchBlob;
+		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
@@ -126,6 +133,7 @@
 		0461177D2442C7DE0023F3FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0461177F2442C7E60023F3FC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		046117842442C7F60023F3FC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		04611787244306FB0023F3FC /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* reactnativedemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reactnativedemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = reactnativedemo/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = reactnativedemo/AppDelegate.m; sourceTree = "<group>"; };
@@ -276,6 +284,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		04611788244306FB0023F3FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0461178C244306FB0023F3FC /* libRNFetchBlob.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* reactnativedemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +335,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				04611787244306FB0023F3FC /* RNFetchBlob.xcodeproj */,
 				0461176D2442C7720023F3FC /* GPUImage.xcodeproj */,
 				046117402442C54E0023F3FC /* RNVideoProcessing */,
 				13B07FAE1A68108700A75B9A /* reactnativedemo */,
@@ -485,6 +502,10 @@
 					ProductGroup = 0461176E2442C7720023F3FC /* Products */;
 					ProjectRef = 0461176D2442C7720023F3FC /* GPUImage.xcodeproj */;
 				},
+				{
+					ProductGroup = 04611788244306FB0023F3FC /* Products */;
+					ProjectRef = 04611787244306FB0023F3FC /* RNFetchBlob.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -509,6 +530,13 @@
 			fileType = wrapper.framework;
 			path = GPUImage.framework;
 			remoteRef = 046117752442C7720023F3FC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		0461178C244306FB0023F3FC /* libRNFetchBlob.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFetchBlob.a;
+			remoteRef = 0461178B244306FB0023F3FC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
