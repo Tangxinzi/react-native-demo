@@ -6,7 +6,9 @@ import {
   Button,
   ScrollView,
   ActivityIndicator,
-  Alert
+  Alert,
+  StatusBar,
+  Dimensions
 } from "react-native";
 import styles from "./VideoEditingScreenStyleSheet";
 //Third party
@@ -23,6 +25,7 @@ class VideoEditingScreen extends React.Component {
     this.state = {
       fileUri: null,
       videoDuration: 0,
+      currentTime: 0,
       startTime: 0,
       endTime: null,
       loading: false
@@ -43,17 +46,17 @@ class VideoEditingScreen extends React.Component {
       } else {
         console.log("response is", response);
         //Get duration
-        ProcessingManager.getVideoInfo(response.path).then(
+        ProcessingManager.getVideoInfo(response.origURL).then(
           ({ duration, size, frameRate, bitrate }) => {
-            console.log(duration);
+            console.log(duration, size, frameRate, bitrate);
             this.setState({
               videoDuration: duration,
-              endTime: duration
+              endTime: parseInt(duration)
             });
           }
         );
         this.setState({
-          fileUri: response.path
+          fileUri: response.origURL
         });
       }
     });
@@ -127,22 +130,17 @@ class VideoEditingScreen extends React.Component {
   trimmingTime = e => {
     //Convert the time using regular exp
     let fixed = this.state.videoDuration.toString().length;
+
     //Start time
     let startTime = e.startTime
       ? parseInt(
-          e.startTime
-            .toString()
-            .substring(2)
-            .substring(0, fixed)
+          e.startTime.toString().substring(0, fixed)
         )
       : 0;
     //End time
     let endTime = e.endTime
       ? parseInt(
-          e.endTime
-            .toString()
-            .substring(2)
-            .substring(0, fixed)
+          e.endTime.toString().substring(0, fixed)
         )
       : this.state.videoDuration;
 
@@ -150,48 +148,63 @@ class VideoEditingScreen extends React.Component {
       startTime: startTime,
       endTime: endTime
     });
-  };
-  render() {
-    //"/storage/emulated/0/christian/videoplayback.mp4"
+  }
+
+  currentTime = nativeEvent => {
+    console.log(nativeEvent)
+    this.setState({
+      currentTime: parseInt(nativeEvent.currentTime)
+    })
+  }
+
+  render () {
     return (
       <View style={styles.flex}>
         <View style={styles.container}>
           {this.state.fileUri ? (
-            <View>
+            <>
+              <StatusBar barStyle='light-content' />
               <VideoPlayer
                 ref={ref => (this.videoPlayerRef = ref)}
                 play={true} // default false
-                replay={true} // should player play video again if its ended
-                rotate={true} // use this prop to rotate video if it captured in landscape mode iOS only
+                replay={false} // should player play video again if its ended
+                rotate={false} // use this prop to rotate video if it captured in landscape mode iOS only
                 source={this.state.fileUri}
-                playerWidth={300} // iOS only
-                playerHeight={500} // iOS only
-                height={300}
+                style={{ position: 'absolute', left: 0 }}
+                playerWidth={Dimensions.get('window').width} // iOS only
+                playerHeight={Dimensions.get('window').height} // iOS only
+                height={Dimensions.get('window').height}
                 resizeMode={VideoPlayer.Constants.resizeMode.COVER}
-                onChange={({ nativeEvent }) => console.log({ nativeEvent })} // get Current time on every second
+                onChange={({ nativeEvent }) => this.currentTime(nativeEvent)} // get Current time on every second
               />
-
-              <View style={styles.textView}>
-                <Text>{`Stat From: ${this.state.startTime} `}</Text>
-                <Text>{`To End: ${this.state.endTime}  `}</Text>
-              </View>
-              <View style={{ flex: 1 }}>
-                <View style={styles.trimmerView}>
-                  <Trimmer
-                    source={this.state.fileUri}
-                    resizeMode={VideoPlayer.Constants.resizeMode.CONTAIN}
-                    onChange={e => this.trimmingTime(e)}
-                  />
+              <View style={styles.trimmerView}>
+                <View style={styles.trimmerTime}>
+                  <Text style={{ color: '#FFF' }}>{`Stat From: ${ this.state.startTime } `}</Text>
+                  <Text style={{ color: '#FFF' }}>{`- End: ${ this.state.endTime }  `}</Text>
+                </View>
+                <Trimmer
+                  source={this.state.fileUri}
+                  height={40}
+                  width={Dimensions.get('window').width}
+                  onTrackerMove={e => this.currentTime(e)} // iOS only
+                  currentTime={this.state.currentTime} // use this prop to set tracker position iOS only
+                  themeColor={'white'} // iOS only
+                  thumbWidth={10} // iOS only
+                  trackerColor={'#fff'} // iOS only
+                  resizeMode={VideoPlayer.Constants.resizeMode.COVER}
+                  onChange={e => this.trimmingTime(e)}
+                />
+                <View style={styles.trim}>
+                  <Button title={"Trim Video"} onPress={() => this.trimVideo()} />
                 </View>
               </View>
-              <Button title={"Trim Video"} onPress={() => this.trimVideo()} />
-            </View>
+            </>
           ) : (
             <Button title={"Choose File"} onPress={() => this.pickDocument()} />
           )}
         </View>
         {this.state.loading && (
-          <ActivityIndicator size="large" color="red" style={styles.loading} />
+          <ActivityIndicator size="large" style={styles.loading} />
         )}
       </View>
     );

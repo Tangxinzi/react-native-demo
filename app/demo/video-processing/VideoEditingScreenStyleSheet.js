@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from "react-native";
 const styles = StyleSheet.create({
   flex: {
     flex: 1
@@ -10,17 +10,20 @@ const styles = StyleSheet.create({
     alignItems: "center",
     zIndex: 1
   },
-  textView: {
+  trimmerTime: {
+    marginBottom: 10,
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"
   },
   trimmerView: {
-    marginTop: 50,
-    width: 300,
-    height: 50,
-    borderWidth: 1,
-    alignItems: "center"
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginBottom: 80
+  },
+  trim: {
+    marginTop: 40
   },
   loading: {
     backgroundColor: "black",
