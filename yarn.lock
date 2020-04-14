@@ -5953,6 +5953,11 @@ react-native-media-meta@^0.0.10:
   resolved "https://registry.npm.taobao.org/react-native-media-meta/download/react-native-media-meta-0.0.10.tgz#097cc19d04505258e481547bcfd16db6d390e3dd"
   integrity sha1-CXzBnQRQUljkgVR7z9FtttOQ490=
 
+react-native-share@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/react-native-share/download/react-native-share-3.2.0.tgz#030aa81e2c3ec1d5c7577d3435b6cb1ed304074f"
+  integrity sha1-AwqoHiw+wdXHV300NbbLHtMEB08=
+
 react-native-video-processing@^1.20.0:
   version "1.20.0"
   resolved "https://registry.npm.taobao.org/react-native-video-processing/download/react-native-video-processing-1.20.0.tgz#7b27373f959dfa8806661c6050040378240e0dc1"

@@ -36,6 +36,8 @@ target 'reactnativedemo' do
 
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
+  pod 'RNShare', :path => '../node_modules/react-native-share'
+
   target 'reactnativedemoTests' do
     inherit! :search_paths
     # Pods for testing

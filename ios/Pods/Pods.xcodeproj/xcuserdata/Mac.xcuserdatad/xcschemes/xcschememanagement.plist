@@ -81,6 +81,13 @@
 			<key>orderHint</key>
 			<integer>36</integer>
 		</dict>
+		<key>RNShare.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>37</integer>
+		</dict>
 		<key>React-Core.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -205,7 +212,7 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>37</integer>
+			<integer>38</integer>
 		</dict>
 		<key>boost-for-react-native.xcscheme</key>
 		<dict>

@@ -24,11 +24,12 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import VideoProcessing from "./app/demo/video-processing/index";
+// import VideoProcessing from "./app/demo/video-processing/index";
+import Share from "./app/demo/share/index";
 
 const App: () => React$Node = () => {
   return (
-    <VideoProcessing />
+    <Share />
   );
 };
 
