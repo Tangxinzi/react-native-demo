@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "16.9.0",
     "react-native": "0.61.5",
+    "react-native-audiowaveform": "^2.0.5",
     "react-native-cached-image": "^1.4.3",
     "react-native-code-push": "^6.2.0",
     "react-native-document-picker": "^3.3.3",

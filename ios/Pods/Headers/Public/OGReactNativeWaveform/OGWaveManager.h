@@ -1,0 +1,1 @@
+../../../../../node_modules/react-native-audiowaveform/ios/OGWaveManager.h

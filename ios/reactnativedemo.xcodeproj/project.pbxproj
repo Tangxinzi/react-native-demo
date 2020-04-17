@@ -28,9 +28,10 @@
 		0461177C2442C7D60023F3FC /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461177B2442C7D60023F3FC /* OpenGLES.framework */; };
 		0461177E2442C7DE0023F3FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461177D2442C7DE0023F3FC /* AVFoundation.framework */; };
 		046117802442C7E60023F3FC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0461177F2442C7E60023F3FC /* QuartzCore.framework */; };
-		046117812442C7EE0023F3FC /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046117762442C7720023F3FC /* GPUImage.framework */; };
-		046117822442C7EE0023F3FC /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 046117762442C7720023F3FC /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		046117852442C7F60023F3FC /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 046117842442C7F60023F3FC /* MobileCoreServices.framework */; };
+		047B88042449853D00F7083C /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047B88032449852C00F7083C /* GPUImage.framework */; };
+		047B88052449853D00F7083C /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 047B88032449852C00F7083C /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		047B882324498DC700F7083C /* libOGReactNativeWaveform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047B882224498DC700F7083C /* libOGReactNativeWaveform.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -52,26 +53,26 @@
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = reactnativedemo;
 		};
-		046117732442C7720023F3FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0461176D2442C7720023F3FC /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
-			remoteInfo = GPUImage;
-		};
-		046117752442C7720023F3FC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0461176D2442C7720023F3FC /* GPUImage.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = BCE209E51943F20C002FEED8;
-			remoteInfo = GPUImageFramework;
-		};
 		0461178B244306FB0023F3FC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 04611787244306FB0023F3FC /* RNFetchBlob.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = A15C300E1CD25C330074CB35;
 			remoteInfo = RNFetchBlob;
+		};
+		047B88002449852C00F7083C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 047B87FA2449852C00F7083C /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCF1A33414DDB1EC00852800;
+			remoteInfo = GPUImage;
+		};
+		047B88022449852C00F7083C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 047B87FA2449852C00F7083C /* GPUImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BCE209E51943F20C002FEED8;
+			remoteInfo = GPUImageFramework;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -89,7 +90,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				046117822442C7EE0023F3FC /* GPUImage.framework in Embed Frameworks */,
+				047B88052449853D00F7083C /* GPUImage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,7 +127,6 @@
 		046117672442C7250023F3FC /* ICGThumbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICGThumbView.m; path = "../../../../node_modules/react-native-video-processing/ios/RNVideoProcessing/RNTrimmerView/ICGVideoTrimmer/ICGThumbView.m"; sourceTree = "<group>"; };
 		046117682442C7250023F3FC /* ICGRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICGRulerView.m; path = "../../../../node_modules/react-native-video-processing/ios/RNVideoProcessing/RNTrimmerView/ICGVideoTrimmer/ICGRulerView.m"; sourceTree = "<group>"; };
 		046117692442C7250023F3FC /* ICGVideoTrimmerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ICGVideoTrimmerView.m; path = "../../../../node_modules/react-native-video-processing/ios/RNVideoProcessing/RNTrimmerView/ICGVideoTrimmer/ICGVideoTrimmerView.m"; sourceTree = "<group>"; };
-		0461176D2442C7720023F3FC /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../node_modules/react-native-video-processing/ios/GPUImage/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
 		046117772442C7C50023F3FC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		046117792442C7CE0023F3FC /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		0461177B2442C7D60023F3FC /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -134,6 +134,8 @@
 		0461177F2442C7E60023F3FC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		046117842442C7F60023F3FC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		04611787244306FB0023F3FC /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
+		047B87FA2449852C00F7083C /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../node_modules/react-native-video-processing/ios/GPUImage/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
+		047B882224498DC700F7083C /* libOGReactNativeWaveform.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libOGReactNativeWaveform.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* reactnativedemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reactnativedemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = reactnativedemo/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = reactnativedemo/AppDelegate.m; sourceTree = "<group>"; };
@@ -172,12 +174,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047B882324498DC700F7083C /* libOGReactNativeWaveform.a in Frameworks */,
 				046117782442C7C50023F3FC /* CoreMedia.framework in Frameworks */,
 				455A2802E1DB8521D3AF8C5B /* libPods-reactnativedemo.a in Frameworks */,
 				046117802442C7E60023F3FC /* QuartzCore.framework in Frameworks */,
 				0461177E2442C7DE0023F3FC /* AVFoundation.framework in Frameworks */,
-				046117812442C7EE0023F3FC /* GPUImage.framework in Frameworks */,
 				046117852442C7F60023F3FC /* MobileCoreServices.framework in Frameworks */,
+				047B88042449853D00F7083C /* GPUImage.framework in Frameworks */,
 				0461177A2442C7CE0023F3FC /* CoreVideo.framework in Frameworks */,
 				0461177C2442C7D60023F3FC /* OpenGLES.framework in Frameworks */,
 			);
@@ -275,19 +278,19 @@
 			path = ICGVideoTrimmer;
 			sourceTree = "<group>";
 		};
-		0461176E2442C7720023F3FC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				046117742442C7720023F3FC /* libGPUImage.a */,
-				046117762442C7720023F3FC /* GPUImage.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		04611788244306FB0023F3FC /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				0461178C244306FB0023F3FC /* libRNFetchBlob.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		047B87FB2449852C00F7083C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				047B88012449852C00F7083C /* libGPUImage.a */,
+				047B88032449852C00F7083C /* GPUImage.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				047B882224498DC700F7083C /* libOGReactNativeWaveform.a */,
 				046117842442C7F60023F3FC /* MobileCoreServices.framework */,
 				0461177F2442C7E60023F3FC /* QuartzCore.framework */,
 				0461177D2442C7DE0023F3FC /* AVFoundation.framework */,
@@ -335,8 +339,8 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				047B87FA2449852C00F7083C /* GPUImage.xcodeproj */,
 				04611787244306FB0023F3FC /* RNFetchBlob.xcodeproj */,
-				0461176D2442C7720023F3FC /* GPUImage.xcodeproj */,
 				046117402442C54E0023F3FC /* RNVideoProcessing */,
 				13B07FAE1A68108700A75B9A /* reactnativedemo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -500,8 +504,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 0461176E2442C7720023F3FC /* Products */;
-					ProjectRef = 0461176D2442C7720023F3FC /* GPUImage.xcodeproj */;
+					ProductGroup = 047B87FB2449852C00F7083C /* Products */;
+					ProjectRef = 047B87FA2449852C00F7083C /* GPUImage.xcodeproj */;
 				},
 				{
 					ProductGroup = 04611788244306FB0023F3FC /* Products */;
@@ -519,25 +523,25 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		046117742442C7720023F3FC /* libGPUImage.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGPUImage.a;
-			remoteRef = 046117732442C7720023F3FC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		046117762442C7720023F3FC /* GPUImage.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = GPUImage.framework;
-			remoteRef = 046117752442C7720023F3FC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		0461178C244306FB0023F3FC /* libRNFetchBlob.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libRNFetchBlob.a;
 			remoteRef = 0461178B244306FB0023F3FC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		047B88012449852C00F7083C /* libGPUImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGPUImage.a;
+			remoteRef = 047B88002449852C00F7083C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		047B88032449852C00F7083C /* GPUImage.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = GPUImage.framework;
+			remoteRef = 047B88022449852C00F7083C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

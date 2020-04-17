@@ -40,6 +40,8 @@ target 'reactnativedemo' do
 
   pod 'CodePush', :path => '../node_modules/react-native-code-push'
 
+  pod 'OGReactNativeWaveform', :path => '../node_modules/react-native-audiowaveform'
+
   target 'reactnativedemoTests' do
     inherit! :search_paths
     # Pods for testing
