@@ -5,6 +5,9 @@ const codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME 
 // 手动方式接收更新的方式
 // const codePushOptions = { checkFrequency: CodePush.CheckFrequency.MANUAL };
 
+// import _App from './app/demo/video-processing/App';
+// import _App from './app/demo/share/App';
+// import _App from './app/demo/code-push/App';
 import _App from './app/demo/audio-waveform/App';
 const App = CodePush(codePushOptions)(_App);
 import {name as appName} from './app.json';

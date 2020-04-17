@@ -5,11 +5,12 @@ import {
   Text,
   View,
   StatusBar,
-  Button,
+  TouchableHighlight,
   Alert,
   ActivityIndicator
 } from 'react-native'
 import CodePush from "react-native-code-push"
+import GlobalStyles from "../GlobalStyles";
 
 type Props = {}
 // noinspection JSAnnotator
@@ -88,33 +89,37 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <StatusBar backgroundColor={'#000000'} barStyle={'light-content'}/>
-        {
-          !this.state.showIndicator ? <Button title={'CodePush'} onPress={this.handleUpdate} color={Platform.OS === 'ios' ? '#ffffff' : '#000000'} /> : <ActivityIndicator size={'large'} color={'#ffffff'} />
-        }
+      <View style={GlobalStyles.container}>
+        <View style={GlobalStyles.header}>
+          <Text style={GlobalStyles.headerTitle} allowFontScaling={false}>热更新</Text>
+          <Text style={GlobalStyles.headerSubTitle} allowFontScaling={false}>react-native-code-push</Text>
+        </View>
+        <View style={[GlobalStyles.body, GlobalStyles.bodyContent]}>
+          {
+            !this.state.showIndicator ?
+              <TouchableHighlight onPress={this.handleUpdate} style={GlobalStyles.button} activeOpacity={0.7} underlayColor='#000'>
+                <Text style={GlobalStyles.buttonText} allowFontScaling={false}>CodePush</Text>
+              </TouchableHighlight>
+            :
+              <ActivityIndicator size={'large'} color={'#000000'} />
+          }
 
-        {
-          this.state.showProcess &&
-            <View style={styles.processing}>
-              <View style={styles.line}>
-                <Text style={{ borderRadius: 15, backgroundColor: '#FFF', width: parseInt(this.state.receivedBytes / this.state.totalBytes * 100 || 0) }}></Text>
+          {
+            this.state.showProcess &&
+              <View style={styles.processing}>
+                <View style={styles.line}>
+                  <Text style={{ borderRadius: 15, backgroundColor: '#000000', width: parseInt(this.state.receivedBytes / this.state.totalBytes * 100 || 0) }} allowFontScaling={false}></Text>
+                </View>
+                <Text style={styles.ratio} allowFontScaling={false}>下载进度：{this.state.receivedBytes} kb / {this.state.totalBytes} kb</Text>
               </View>
-              <Text style={styles.ratio}>下载进度：{this.state.receivedBytes} kb / {this.state.totalBytes} kb</Text>
-            </View>
-        }
+          }
+        </View>
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00b2ff'
-  },
   processing: {
     width: '100%',
     padding: 20
@@ -127,7 +132,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e7e7e7'
   },
   ratio: {
-    color: '#FFF',
+    color: '#000000',
     textAlign: 'center',
     fontWeight: '600'
   }

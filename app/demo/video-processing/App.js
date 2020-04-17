@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react"
 import PropTypes from "prop-types";
 import {
   View,
@@ -8,18 +8,19 @@ import {
   ActivityIndicator,
   Alert,
   StatusBar,
-  Dimensions
+  Dimensions,
+  StyleSheet,
+  TouchableHighlight
 } from "react-native";
-import styles from "./VideoEditingScreenStyleSheet";
-//Third party
 import {
   VideoPlayer,
   Trimmer,
   ProcessingManager
 } from "react-native-video-processing";
 import ImagePicker from "react-native-image-picker";
+import GlobalStyles from "../GlobalStyles"
 
-class VideoEditingScreen extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -28,6 +29,7 @@ class VideoEditingScreen extends React.Component {
       currentTime: 0,
       startTime: 0,
       endTime: null,
+      videoSize: null,
       loading: false
     };
   }
@@ -44,20 +46,18 @@ class VideoEditingScreen extends React.Component {
       } else if (response.customButton) {
         console.log("User tapped custom button: ", response.customButton);
       } else {
-        console.log("response is", response);
-        //Get duration
+        // console.log("response is", response);
+        // getVideoInfo
         ProcessingManager.getVideoInfo(response.origURL).then(
           ({ duration, size, frameRate, bitrate }) => {
-            console.log(duration, size, frameRate, bitrate);
             this.setState({
+              videoSize: size,
               videoDuration: duration,
-              endTime: parseInt(duration)
+              endTime: parseInt(duration),
+              fileUri: response.origURL
             });
           }
-        );
-        this.setState({
-          fileUri: response.origURL
-        });
+        )
       }
     });
   };
@@ -119,7 +119,7 @@ class VideoEditingScreen extends React.Component {
       saveToCameraRoll: true, // default is false, iOS only
       saveWithCurrentDate: true, // default is false, iOS only
       minimumBitrate: 300000,
-      removeAudio: true // default is false
+      removeAudio: false // default is false
     };
     this.videoPlayerRef
       .compress(options)
@@ -159,24 +159,28 @@ class VideoEditingScreen extends React.Component {
 
   render () {
     return (
-      <View style={styles.flex}>
-        <View style={styles.container}>
+      <View style={GlobalStyles.container}>
+        <View style={GlobalStyles.header}>
+          <Text style={GlobalStyles.headerTitle} allowFontScaling={false}>视频剪辑</Text>
+          <Text style={GlobalStyles.headerSubTitle} allowFontScaling={false}>react-native-video-processing</Text>
+        </View>
+        <View style={styles.flex}>
           {this.state.fileUri ? (
             <>
-              <StatusBar barStyle='light-content' />
-              <VideoPlayer
-                ref={ref => (this.videoPlayerRef = ref)}
-                play={true} // default false
-                replay={false} // should player play video again if its ended
-                rotate={false} // use this prop to rotate video if it captured in landscape mode iOS only
-                source={this.state.fileUri}
-                style={{ position: 'absolute', left: 0 }}
-                playerWidth={Dimensions.get('window').width} // iOS only
-                playerHeight={Dimensions.get('window').height} // iOS only
-                height={Dimensions.get('window').height}
-                resizeMode={VideoPlayer.Constants.resizeMode.COVER}
-                onChange={({ nativeEvent }) => this.currentTime(nativeEvent)} // get Current time on every second
-              />
+              <View style={styles.processing}>
+                <VideoPlayer
+                  ref={ref => (this.videoPlayerRef = ref)}
+                  play={true} // default false
+                  replay={false} // should player play video again if its ended
+                  rotate={false} // use this prop to rotate video if it captured in landscape mode iOS only
+                  source={this.state.fileUri}
+                  playerWidth={Dimensions.get('window').width} // iOS only
+                  playerHeight={this.state.videoSize.height / (this.state.videoSize.width / Dimensions.get('window').width)} // iOS only
+                  // height={Dimensions.get('window').height}
+                  resizeMode={VideoPlayer.Constants.resizeMode.COVER}
+                  onChange={({ nativeEvent }) => this.currentTime(nativeEvent)} // get Current time on every second
+                />
+              </View>
               <View style={styles.trimmerView}>
                 <View style={styles.trimmerTime}>
                   <Text style={{ color: '#FFF' }}>{`Stat From: ${ this.state.startTime } `}</Text>
@@ -200,15 +204,51 @@ class VideoEditingScreen extends React.Component {
               </View>
             </>
           ) : (
-            <Button title={"Choose File"} onPress={() => this.pickDocument()} />
+            <View style={GlobalStyles.body, GlobalStyles.bodyContent}>
+              <TouchableHighlight onPress={() => this.pickDocument()} style={GlobalStyles.button} activeOpacity={0.7} underlayColor='#000'>
+                <Text style={GlobalStyles.buttonText} allowFontScaling={false}>Choose File</Text>
+              </TouchableHighlight>
+            </View>
           )}
         </View>
-        {this.state.loading && (
-          <ActivityIndicator size="large" style={styles.loading} />
-        )}
+        {
+          this.state.loading && <ActivityIndicator size="large" style={styles.loading} />
+        }
       </View>
     );
   }
 }
 
-export default VideoEditingScreen;
+const styles = StyleSheet.create({
+  flex: {
+    flex: 1
+  },
+  processing: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  trimmerTime: {
+    marginBottom: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  trimmerView: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginBottom: 80
+  },
+  trim: {
+    marginTop: 40
+  },
+  loading: {
+    backgroundColor: "#FFF",
+    opacity: 0.5,
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    alignSelf: "center",
+    zIndex: 2
+  }
+});

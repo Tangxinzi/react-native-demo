@@ -6,7 +6,7 @@ import {
   View
 } from "react-native"
 import WaveformWrapper from "./WaveformWrapper"
-import GlobalStyles from "../GlobalStyles";
+import GlobalStyles from "../GlobalStyles"
 
 export default class audioWave extends Component {
   render() {
