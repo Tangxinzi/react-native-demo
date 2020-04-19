@@ -4,9 +4,7 @@
   "summary": "Audio Waveform visualization and sound renderization for React Native",
   "homepage": "https://github.com/juananime/react-native-audiowaveform#readme",
   "license": "WTFPL",
-  "authors": {
-    "name": "Otomogroove 2017"
-  },
+  "authors": "Otomogroove 2017",
   "source": {
     "git": "git+https://github.com/juananime/react-native-audiowaveform.git",
     "tag": "v2.0.5"

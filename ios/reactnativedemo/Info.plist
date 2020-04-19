@@ -7,7 +7,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>reactnativedemo</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -26,6 +26,8 @@
 	<string>1</string>
 	<key>CodePushDeploymentKey</key>
 	<string>Ryb-2G9BR8F9DBYVP1Sn92V0rtLoF-mYEqXa1</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-8061733603127258~8909459648</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

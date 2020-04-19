@@ -42,6 +42,10 @@ target 'reactnativedemo' do
 
   pod 'OGReactNativeWaveform', :path => '../node_modules/react-native-audiowaveform'
 
+  pod 'Google-Mobile-Ads-SDK'
+
+  pod 'react-native-admob', :path => '../node_modules/react-native-admob'
+
   target 'reactnativedemoTests' do
     inherit! :search_paths
     # Pods for testing

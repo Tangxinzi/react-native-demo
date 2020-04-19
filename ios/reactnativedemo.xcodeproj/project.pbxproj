@@ -136,7 +136,7 @@
 		04611787244306FB0023F3FC /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		047B87FA2449852C00F7083C /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = "../node_modules/react-native-video-processing/ios/GPUImage/framework/GPUImage.xcodeproj"; sourceTree = "<group>"; };
 		047B882224498DC700F7083C /* libOGReactNativeWaveform.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libOGReactNativeWaveform.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* reactnativedemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = reactnativedemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* React Native Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "React Native Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = reactnativedemo/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = reactnativedemo/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -357,7 +357,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* reactnativedemo.app */,
+				13B07F961A680F5B00A75B9A /* React Native Demo.app */,
 				00E356EE1AD99517003FC87E /* reactnativedemoTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* reactnativedemo-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* reactnativedemo-tvOSTests.xctest */,
@@ -420,7 +420,7 @@
 			);
 			name = reactnativedemo;
 			productName = reactnativedemo;
-			productReference = 13B07F961A680F5B00A75B9A /* reactnativedemo.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* React Native Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* reactnativedemo-tvOS */ = {
@@ -834,7 +834,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reactnativedemo.app/reactnativedemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/React Native Demo.app/React Native Demo";
 			};
 			name = Debug;
 		};
@@ -855,7 +855,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/reactnativedemo.app/reactnativedemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/React Native Demo.app/React Native Demo";
 			};
 			name = Release;
 		};
@@ -877,7 +877,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = reactnativedemo;
+				PRODUCT_NAME = "React Native Demo";
 				SWIFT_OBJC_BRIDGING_HEADER = "RNVideoProcessing/reactnativedemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -902,7 +902,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = reactnativedemo;
+				PRODUCT_NAME = "React Native Demo";
 				SWIFT_OBJC_BRIDGING_HEADER = "RNVideoProcessing/reactnativedemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

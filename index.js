@@ -8,7 +8,8 @@ const codePushOptions = { checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME 
 // import _App from './app/demo/video-processing/App';
 // import _App from './app/demo/share/App';
 // import _App from './app/demo/code-push/App';
-import _App from './app/demo/audio-waveform/App';
+// import _App from './app/demo/audio-waveform/App';
+import _App from './app/demo/admob/App';
 const App = CodePush(codePushOptions)(_App);
 import {name as appName} from './app.json';
 AppRegistry.registerComponent(appName, () => App);
