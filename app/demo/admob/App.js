@@ -80,6 +80,11 @@ export default class App extends Component {
             style={styles.admob}
             adUnitID="ca-app-pub-8061733603127258/5708581232"
           />
+          <AdMobBanner
+            adSize="largeBanner"
+            style={styles.admob}
+            adUnitID="ca-app-pub-8061733603127258/5708581232"
+          />
           <PublisherBanner
             adSize="banner"
             style={[styles.admob, { height: 50, width: '100%' }]}
@@ -95,6 +100,11 @@ export default class App extends Component {
               }
             }}
             ref={el => (this._appEventsExample = el)}
+          />
+          <AdMobBanner
+            adSize="leaderboard"
+            style={styles.admob}
+            adUnitID="ca-app-pub-8061733603127258/5708581232"
           />
         </View>
       </View>

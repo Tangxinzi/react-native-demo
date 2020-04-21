@@ -46,6 +46,14 @@ target 'reactnativedemo' do
 
   pod 'react-native-admob', :path => '../node_modules/react-native-admob'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
+
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+
   target 'reactnativedemoTests' do
     inherit! :search_paths
     # Pods for testing
