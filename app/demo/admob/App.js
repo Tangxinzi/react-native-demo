@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Platform,
   TouchableHighlight
 } from 'react-native';
 import {
@@ -21,7 +22,7 @@ export default class App extends Component {
   componentDidMount() {
     // 激励广告
     AdMobRewarded.setTestDevices([AdMobRewarded.simulatorId]);
-    AdMobRewarded.setAdUnitID('ca-app-pub-8061733603127258/1003049469');
+    AdMobRewarded.setAdUnitID(Platform.OS === 'ios' ? 'ca-app-pub-8061733603127258/1003049469' : 'ca-app-pub-8061733603127258/2964149774');
     AdMobRewarded.addEventListener('rewarded', reward => console.log('AdMobRewarded => rewarded', reward));
     AdMobRewarded.addEventListener('adLoaded', () => console.log('AdMobRewarded => adLoaded'));
     AdMobRewarded.addEventListener('adFailedToLoad', error => console.warn(error));
@@ -36,7 +37,7 @@ export default class App extends Component {
 
     // 插屏广告
     AdMobInterstitial.setTestDevices([AdMobInterstitial.simulatorId]);
-    AdMobInterstitial.setAdUnitID('ca-app-pub-8061733603127258/3820784491');
+    AdMobInterstitial.setAdUnitID(Platform.OS === 'ios' ? 'ca-app-pub-8061733603127258/3820784491' : 'ca-app-pub-8061733603127258/1505682154');
     AdMobInterstitial.addEventListener('adLoaded', () => console.log('AdMobInterstitial adLoaded'));
     AdMobInterstitial.addEventListener('adFailedToLoad', error => console.warn(error));
     AdMobInterstitial.addEventListener('adOpened', () => console.log('AdMobInterstitial => adOpened'));
@@ -78,17 +79,17 @@ export default class App extends Component {
           <AdMobBanner
             adSize="banner" // largeBanner mediumRectangle fullBanner leaderboard smartBannerPortrait smartBannerLandscape
             style={styles.admob}
-            adUnitID="ca-app-pub-8061733603127258/5708581232"
+            adUnitID={Platform.OS === 'ios' ? 'ca-app-pub-8061733603127258/5708581232' : 'ca-app-pub-8061733603127258/5314980946'}
           />
           <AdMobBanner
             adSize="largeBanner"
             style={styles.admob}
-            adUnitID="ca-app-pub-8061733603127258/5708581232"
+            adUnitID={Platform.OS === 'ios' ? 'ca-app-pub-8061733603127258/5708581232' : 'ca-app-pub-8061733603127258/5314980946'}
           />
           <PublisherBanner
             adSize="banner"
             style={[styles.admob, { height: 50, width: '100%' }]}
-            adUnitID="ca-app-pub-8061733603127258/5708581232"
+            adUnitID={Platform.OS === 'ios' ? 'ca-app-pub-8061733603127258/5708581232' : 'ca-app-pub-8061733603127258/5314980946'}
             onAdFailedToLoad={error => {
               console.warn(error);
             }}
@@ -104,7 +105,7 @@ export default class App extends Component {
           <AdMobBanner
             adSize="leaderboard"
             style={styles.admob}
-            adUnitID="ca-app-pub-8061733603127258/5708581232"
+            adUnitID={Platform.OS === 'ios' ? 'ca-app-pub-8061733603127258/5708581232' : 'ca-app-pub-8061733603127258/5314980946'}
           />
         </View>
       </View>

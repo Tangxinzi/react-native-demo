@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 40,
-    marginTop: 60
+    marginTop: 20
   },
   headerTitle: {
     fontSize: 20,
